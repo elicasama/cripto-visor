@@ -2,6 +2,7 @@ package com.example.visor.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.visor.R
 import com.example.visor.api.CoinGeckoApi
 import com.example.visor.models.Moneda
@@ -31,11 +32,13 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         val monedas = listOf(
             Moneda(
                 nombre = "Moneda 1",
-                precioActual = 12f
+                precioActual = 12f,
+                icono = "https://libertex.org/sites/default/files/styles/blog_detail_hero/public/2021-02/cardano-price-prediction_main.jpg?itok=aCu5Cn_B"
             ),
             Moneda(
                 nombre = "Moneda 2",
-                precioActual = 22f
+                precioActual = 22f,
+                icono = "https://http2.mlstatic.com/D_NQ_NP_2X_18161-MLA20150777935_082014-F.webp"
             )
         )
 
@@ -43,6 +46,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         val adapter = SimpleRecyclerAdapter<Moneda>(R.layout.item_moneda) { view, moneda, _ ->
             view.etiqueta_nombre.text = moneda.nombre
             view.etiqueta_precio.text = moneda.precioActual.toString()
+            Glide.with(this).load(moneda.icono).into(view.imagen_icono)
         }
 
         lista_monedas.setup(adapter)

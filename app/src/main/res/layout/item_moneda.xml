@@ -9,6 +9,7 @@
     >
 
     <ImageView
+        android:id ="@+id/imagen_icono"
         android:layout_width="24dp"
         android:layout_height="24dp"
         tools:src="@drawable/ic_launcher_foreground"
