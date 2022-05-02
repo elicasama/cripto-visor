@@ -34,16 +34,21 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
             view.etiqueta_nombre.text = moneda.nombre
             view.etiqueta_precio.text = moneda.precioActual.toString()
             Glide.with(this).load(moneda.icono).into(view.imagen_icono)
+            view.etiqueta_variacion.text = moneda.variacionFormarteada()
         }
 
         lista_monedas.setup(adapter)
 
-        launch{
+        cargarMonedas(adapter)
+
+
+    }
+
+    private fun cargarMonedas(adapter: SimpleRecyclerAdapter<Moneda>) {
+        launch {
             val monedas = coinGeckoApi.todasLasMonedas()
             adapter.populate(monedas)
-                       
+
         }
-
-
     }
 }

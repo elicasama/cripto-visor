@@ -17,12 +17,23 @@
 
     <TextView
         android:id="@+id/etiqueta_nombre"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
         tools:text="Bitcoin"
         />
+
+    <TextView
+        android:id="@+id/etiqueta_variacion"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="12sp"
+        tools:textColor="@color/alza"
+        tools:text="(2.24% ^)"
+        />
+
 
     <TextView
         android:layout_width="wrap_content"

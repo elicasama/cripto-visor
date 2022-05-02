@@ -19,4 +19,10 @@ data class Moneda(
 
     @SerializedName("market_cap_rank")
     val ranking: Int = 0
-)
+) {
+    fun estaEnAlza() = variacionEn24hs >= 0
+    fun variacionFormarteada() = "(${variacionPorcejanje()}% ${flechita()})"
+
+    private fun variacionPorcejanje() = "%.2f".format(variacionEn24hs)
+    private fun flechita() = if(estaEnAlza()) "▲" else "▼"
+}
