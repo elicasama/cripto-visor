@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.item_moneda.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 class MainActivity : AppCompatActivity(), CoroutineScope {
@@ -29,20 +30,6 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
     private fun configurarVista() {
         // TODO: Usar coinGeckoApi para listar las monedas
 
-        val monedas = listOf(
-            Moneda(
-                nombre = "Moneda 1",
-                precioActual = 12f,
-                icono = "https://libertex.org/sites/default/files/styles/blog_detail_hero/public/2021-02/cardano-price-prediction_main.jpg?itok=aCu5Cn_B"
-            ),
-            Moneda(
-                nombre = "Moneda 2",
-                precioActual = 22f,
-                icono = "https://http2.mlstatic.com/D_NQ_NP_2X_18161-MLA20150777935_082014-F.webp"
-            )
-        )
-
-
         val adapter = SimpleRecyclerAdapter<Moneda>(R.layout.item_moneda) { view, moneda, _ ->
             view.etiqueta_nombre.text = moneda.nombre
             view.etiqueta_precio.text = moneda.precioActual.toString()
@@ -50,7 +37,13 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         }
 
         lista_monedas.setup(adapter)
-        adapter.populate(monedas)
+
+        launch{
+            val monedas = coinGeckoApi.todasLasMonedas()
+            adapter.populate(monedas)
+                       
+        }
+
 
     }
 }
