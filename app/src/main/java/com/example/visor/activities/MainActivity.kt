@@ -38,9 +38,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         }
 
         lista_monedas.setup(adapter)
-
         cargarMonedas(adapter)
-
 
     }
 

@@ -10,6 +10,14 @@ class ExampleUnitTest : DescribeSpec({
             Moneda(variacionEn24hs = 2.0).estaEnAlza() shouldBe true
         }
 
+        it("estaEnAlza con variación negariva devuelve false") {
+            Moneda(variacionEn24hs = -2.0).estaEnAlza() shouldBe false
+        }
+
+        it("variacionFormateada devuelve el porcentaje con dos decimales y la flechita") {
+            Moneda(variacionEn24hs = -1.56).variacionFormarteada() shouldBe "(-1,56% ▼)"
+        }
+
         // TODO: Agregar tests acá
     }
 })
