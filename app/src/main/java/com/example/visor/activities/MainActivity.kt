@@ -35,6 +35,10 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
             view.etiqueta_precio.text = moneda.precioActual.toString()
             Glide.with(this).load(moneda.icono).into(view.imagen_icono)
             view.etiqueta_variacion.text = moneda.variacionFormarteada()
+            view.etiqueta_variacion.setTextColor(resources.getColor(
+                if (moneda.estaEnAlza()) R.color.alza else R.color.baja
+            ))
+
         }
 
         lista_monedas.setup(adapter)
@@ -46,7 +50,6 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         launch {
             val monedas = coinGeckoApi.todasLasMonedas()
             adapter.populate(monedas)
-
         }
     }
 }

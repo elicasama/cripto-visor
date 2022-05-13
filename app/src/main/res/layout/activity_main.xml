@@ -13,5 +13,4 @@
         tools:listitem="@layout/item_moneda"
         tools:itemCount="3"
     />
-
 </FrameLayout>

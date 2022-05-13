@@ -15,7 +15,7 @@ class ExampleUnitTest : DescribeSpec({
         }
 
         it("variacionFormateada devuelve el porcentaje con dos decimales y la flechita") {
-            Moneda(variacionEn24hs = -1.56).variacionFormarteada() shouldBe "(-1,56% ▼)"
+            Moneda(variacionEn24hs = -1.56).variacionFormarteada() shouldBe "(-1.56% ▼)"
         }
 
         // TODO: Agregar tests acá
