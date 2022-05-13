@@ -1,6 +1,7 @@
 package com.example.visor.activities
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.visor.R
@@ -47,9 +48,12 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
     }
 
     private fun cargarMonedas(adapter: SimpleRecyclerAdapter<Moneda>) {
+        progress_bar.visibility = View.VISIBLE
         launch {
             val monedas = coinGeckoApi.todasLasMonedas()
             adapter.populate(monedas)
+            progress_bar.visibility = View.GONE
         }
+
     }
 }
