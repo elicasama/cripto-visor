@@ -15,14 +15,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="8dp"
+    android:padding="@dimen/padding_estandar"
     android:gravity="center_vertical"
     >
 
     <ImageView
         android:id ="@+id/imagen_icono"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="@dimen/ancho_icono"
+        android:layout_height="@dimen/alto_icono"
         tools:src="@drawable/ic_launcher_foreground"
         />
 

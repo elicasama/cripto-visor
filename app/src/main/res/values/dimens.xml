@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ancho_icono">24dp</dimen>
+    <dimen name="alto_icono">24dp</dimen>
+    <dimen name="padding_estandar">8dp</dimen>
+</resources>
