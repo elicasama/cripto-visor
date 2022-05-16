@@ -16,19 +16,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
-class MainActivity : AppCompatActivity(), CoroutineScope {
-    override val coroutineContext: CoroutineContext get() = Dispatchers.Main
+class MainActivity : BaseActivity(R.layout.activity_main) {
 
     private val coinGeckoApi = CoinGeckoApi.new()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        configurarVista()
-    }
-
-    private fun configurarVista() {
+    override fun configurarVista() {
         // TODO: Usar coinGeckoApi para listar las monedas
 
         val adapter = SimpleRecyclerAdapter<Moneda>(R.layout.item_moneda) { view, moneda, _ ->
