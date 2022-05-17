@@ -23,22 +23,13 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
 
 
     override fun configurarVista() {
-        // TODO: Usar coinGeckoApi para listar las monedas
 
-        val adapter = SimpleRecyclerAdapter<Moneda>(R.layout.item_moneda) { view, moneda, _ ->
-            view.etiqueta_nombre.text = moneda.nombre
-            view.etiqueta_precio.text = moneda.precioActual.toString()
-            Glide.with(this).load(moneda.icono).into(view.imagen_icono)
-            view.etiqueta_variacion.text = moneda.variacionFormarteada()
-            view.etiqueta_variacion.setTextColor(resources.getColor(
-                if (moneda.estaEnAlza()) R.color.alza else R.color.baja
-            ))
-            view.contenedor_moneda.setOnClickListener(){
+       val adapter = SimpleRecyclerAdapter<Moneda>(R.layout.item_moneda) { view, moneda, _ ->
+            dibujarMoneda(view, moneda) {
                 startActivity(
                     Intent(this, MonedaActivity::class.java)
-                        .putExtra("moneda", moneda.nombre)
+                        .putExtra("moneda", moneda)
                 )
-
             }
         }
 

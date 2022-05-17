@@ -11,6 +11,6 @@ class MonedaActivity : BaseActivity(R.layout.activity_moneda){
         val moneda = intent.extras?.getSerializable("moneda") as? Moneda
             ?: throw RuntimeException("Necesito una moneda para funcionar")
 
-        label.text= "Acá va el detalle de la moneda ${moneda.nombre}"
+
     }
 }
