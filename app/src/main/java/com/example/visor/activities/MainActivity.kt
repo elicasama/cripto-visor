@@ -1,5 +1,6 @@
 package com.example.visor.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -32,7 +33,9 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
             view.etiqueta_variacion.setTextColor(resources.getColor(
                 if (moneda.estaEnAlza()) R.color.alza else R.color.baja
             ))
-
+            view.contenedor_moneda.setOnClickListener(){
+                startActivity( Intent(this, MonedaActivity::class.java))
+            }
         }
 
         lista_monedas.setup(adapter)
