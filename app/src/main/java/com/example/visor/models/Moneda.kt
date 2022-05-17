@@ -1,6 +1,7 @@
 package com.example.visor.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Moneda(
     val id: String = "",
@@ -19,7 +20,7 @@ data class Moneda(
 
     @SerializedName("market_cap_rank")
     val ranking: Int = 0
-) {
+) : Serializable {
     fun estaEnAlza() = variacionEn24hs >= 0
     fun variacionFormarteada() = "(${variacionPorcejanje()}% ${flechita()})"
 

@@ -34,7 +34,11 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
                 if (moneda.estaEnAlza()) R.color.alza else R.color.baja
             ))
             view.contenedor_moneda.setOnClickListener(){
-                startActivity( Intent(this, MonedaActivity::class.java))
+                startActivity(
+                    Intent(this, MonedaActivity::class.java)
+                        .putExtra("moneda", moneda.nombre)
+                )
+
             }
         }
 
