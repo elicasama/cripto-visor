@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
+import android.widget.Toast
 import androidx.annotation.LayoutRes
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.visor.R
@@ -37,6 +39,10 @@ abstract class BaseActivity (@LayoutRes val layout: Int) : AppCompatActivity(), 
 
         val shareIntent = Intent.createChooser(sendIntent, null)
         startActivity(shareIntent)
+    }
+
+    protected fun mostrarCartelito(@StringRes idString: Int) {
+        Toast.makeText(this, idString, Toast.LENGTH_LONG).show()
     }
 
     protected fun dibujarMoneda(view: View, moneda: Moneda, onClick: () -> Unit = {}) {

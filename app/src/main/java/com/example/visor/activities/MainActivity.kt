@@ -41,9 +41,13 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     private fun cargarMonedas(adapter: SimpleRecyclerAdapter<Moneda>) {
         progress_bar.visibility = View.VISIBLE
         launch {
-            val monedas = coinGeckoApi.todasLasMonedas()
-            adapter.populate(monedas)
-            progress_bar.visibility = View.GONE
+            try {
+                val monedas = coinGeckoApi.todasLasMonedas()
+                adapter.populate(monedas)
+                progress_bar.visibility = View.GONE
+            } catch (e: Exception) {
+                mostrarCartelito(R.string.no_hay_internet)
+            }
         }
 
     }
