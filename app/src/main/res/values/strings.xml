@@ -11,5 +11,6 @@
         \nSubio mucho hoy: %s
         \nCapitalización de mercado: $%s
     </string>
-
+    <string name="si">Si</string>
+    <string name="no">No</string>
 </resources>

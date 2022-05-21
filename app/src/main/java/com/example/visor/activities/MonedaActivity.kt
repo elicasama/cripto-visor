@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import com.example.visor.R
 import com.example.visor.models.Moneda
 import com.example.visor.utils.formateado
+import com.example.visor.utils.siONo
 import kotlinx.android.synthetic.main.activity_moneda.*
 import kotlinx.android.synthetic.main.item_moneda.*
 import java.lang.RuntimeException
@@ -21,8 +22,8 @@ class MonedaActivity : BaseActivity(R.layout.activity_moneda){
             moneda.variacionFormarteada(),
             moneda.precioActual.formateado(),
             moneda.ranking.toString(),
-            moneda.esEstable().toString(),
-            moneda.subioMuchoHoy().toString(),
+            moneda.esEstable().siONo(resources),
+            moneda.subioMuchoHoy().siONo(resources),
             moneda.capitalizacionDeMercado.formateado()
         )
 
