@@ -6,13 +6,32 @@
     tools:context=".activities.MainActivity">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/lista_monedas"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/item_moneda"
-        tools:itemCount="3"
-    />
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/boton_solo_estables"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Solo las estables"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/lista_monedas"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                tools:listitem="@layout/item_moneda"
+                tools:itemCount="3"
+                />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <FrameLayout
         android:id="@+id/progress_bar"

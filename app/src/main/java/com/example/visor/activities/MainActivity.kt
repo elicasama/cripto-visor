@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.example.visor.R
 import com.example.visor.api.CoinGeckoApi
@@ -44,6 +45,12 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
             mostrarCartelito(R.string.lista_ordenada)
         }
 
+        boton_solo_estables.setOnClickListener {
+            adapter.populate(
+                adapter.items.filter { it.esEstable() }
+            )
+            boton_solo_estables.isVisible = false
+        }
     }
 
     private fun cargarMonedas(adapter: SimpleRecyclerAdapter<Moneda>) {
