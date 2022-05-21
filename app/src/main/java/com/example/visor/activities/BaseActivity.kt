@@ -28,6 +28,17 @@ abstract class BaseActivity (@LayoutRes val layout: Int) : AppCompatActivity(), 
 
     abstract fun configurarVista()
 
+    protected fun compartir(texto: String) {
+        val sendIntent: Intent = Intent().apply {
+            action = Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT, texto)
+            type = "text/plain"
+        }
+
+        val shareIntent = Intent.createChooser(sendIntent, null)
+        startActivity(shareIntent)
+    }
+
     protected fun dibujarMoneda(view: View, moneda: Moneda, onClick: () -> Unit = {}) {
         view.etiqueta_nombre.text = moneda.nombre
         view.etiqueta_precio.text = moneda.precioActual.formateado()

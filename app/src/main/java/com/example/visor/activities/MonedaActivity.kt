@@ -29,5 +29,8 @@ class MonedaActivity : BaseActivity(R.layout.activity_moneda){
 
         detalle_moneda.text = detalle
 
+        boton_compartir.setOnClickListener {
+            compartir(detalle)
+        }
     }
 }
