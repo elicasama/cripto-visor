@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">Visor</string>
     <string name="usd">USD</string>
+    <string name="detalle">Detalle</string>
+    <string name="detalle_moneda">
+        Moneda: %s
+        \nVariación: %s
+        \nPrecio: $%s
+        \nRanking: %s
+        \nEs estable: %s
+        \nSubio mucho hoy: %s
+        \nCapitalización de mercado: $%s
+    </string>
+
 </resources>
