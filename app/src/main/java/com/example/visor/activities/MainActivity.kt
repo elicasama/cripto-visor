@@ -38,30 +38,53 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
         lista_monedas.setup(adapter)
         cargarMonedas(adapter)
 
-        boton_ordenar.setOnClickListener {
+        boton_ordenar_alfabeticamente.setOnClickListener {
             adapter.populate(
                 adapter.items.sortedBy { it.nombre}
+
             )
-            mostrarCartelito(R.string.lista_ordenada)
+            mostrarCartelito(R.string.lista_ordenada_alfabeticamente)
+            boton_ordenar_alfabeticamente.isVisible = false
+            boton_ordenar_market_cap.isVisible = true
+
+        }
+
+        boton_ordenar_market_cap.setOnClickListener {
+            adapter.populate(
+                adapter.items.sortedBy { it.capitalizacionDeMercado}
+            )
+            mostrarCartelito(R.string.lista_ordenada_market_cap)
+            boton_ordenar_market_cap.isVisible = false
+            boton_ordenar_alfabeticamente.isVisible = true
         }
 
         boton_solo_estables.setOnClickListener {
             adapter.populate(
                 adapter.items.filter { it.esEstable() }
             )
+
             boton_solo_estables.isVisible = false
+            boton_listar_todas.isVisible = true
+        }
+
+        boton_listar_todas.setOnClickListener {
+            boton_listar_todas.isVisible = false
+            cargarMonedas(adapter)
         }
     }
 
     private fun cargarMonedas(adapter: SimpleRecyclerAdapter<Moneda>) {
-        progress_bar.visibility = View.VISIBLE
+        progress_bar.isVisible =  true
         launch {
             try {
                 val monedas = coinGeckoApi.todasLasMonedas()
                 adapter.populate(monedas)
-                progress_bar.visibility = View.GONE
+                boton_solo_estables.isVisible =  true
+                boton_ordenar_alfabeticamente.isVisible =  true
             } catch (e: Exception) {
                 mostrarCartelito(R.string.no_hay_internet)
+            } finally {
+                progress_bar.isVisible =  false
             }
         }
 

@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -18,7 +17,15 @@
                 android:id="@+id/boton_solo_estables"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Solo las estables"/>
+                android:text="Solo las estables"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/boton_listar_todas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="listar todas"
+                android:visibility="gone"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/lista_monedas"
@@ -50,12 +57,23 @@
     </FrameLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/boton_ordenar"
+        android:id="@+id/boton_ordenar_alfabeticamente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:src="@drawable/ic_baseline_sort_by_alpha_24"/>
+        android:src="@drawable/ic_baseline_sort_by_alpha_24"
+        android:visibility="gone"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/boton_ordenar_market_cap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_baseline_sort_24"
+        android:visibility="gone"/>
 
 </FrameLayout>

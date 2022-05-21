@@ -15,5 +15,6 @@
     <string name="no">No</string>
     <string name="compartir">Compartir</string>
     <string name="no_hay_internet">No hay internet</string>
-    <string name="lista_ordenada">Lista ordenada alfabeticamente</string>
+    <string name="lista_ordenada_alfabeticamente">Lista ordenada alfabeticamente</string>
+    <string name="lista_ordenada_market_cap">Lista ordenada por Market Cap</string>
 </resources>
