@@ -28,7 +28,7 @@ data class Moneda(
 ) : Serializable {
     fun estaEnAlza() = variacionEn24hs >= 0
     fun variacionFormarteada() = "(${variacionPorcejanje()}% ${flechita()})"
-    fun esEstable() = kotlin.math.abs(variacionEn24hs) < 0.1
+    fun esEstable() = kotlin.math.abs(variacionEn24hs) < 0.8
     fun subioMuchoHoy() = variacionEn24hs >= 15
 
     private fun variacionPorcejanje() = "%.2f".format(variacionEn24hs)
