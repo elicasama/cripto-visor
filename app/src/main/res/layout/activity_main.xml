@@ -17,6 +17,8 @@
                 android:id="@+id/boton_solo_estables"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="@dimen/padding_estandar"
+                android:layout_marginHorizontal="4dp"
                 android:text="Solo las estables"
                 android:visibility="gone"/>
 
@@ -24,6 +26,8 @@
                 android:id="@+id/boton_listar_todas"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="@dimen/padding_estandar"
+                android:layout_marginHorizontal="4dp"
                 android:text="listar todas"
                 android:visibility="gone"/>
 
